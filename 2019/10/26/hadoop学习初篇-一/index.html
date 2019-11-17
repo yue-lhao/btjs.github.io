@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      Spark学习(Spark Streaming) | 小浩blog
+      hadoop小记 | 小浩blog
     
   </title>
   <meta name="author" content="咕噜咕噜">
@@ -160,7 +160,7 @@
 	<!-- Page title -->
 	<p>
 		
-			当前文章&nbsp;:&nbsp;《Spark学习(Spark Streaming)》
+			当前文章&nbsp;:&nbsp;《hadoop小记》
 		
 	</p>
 
@@ -258,6 +258,18 @@
 		插件作者：KELEN
 		插件来源: https://github.com/KELEN/katelog
 -->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		<script src="/btjs.github.io/plugin/toc/katelog.min.js"></script>
+
+		
 	 
 
 <div class="layout-post">
@@ -265,8 +277,8 @@
 	<div class="article-title">
 		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 		
-	<a href="/btjs.github.io/2019/09/04/Spark学习-Spark-Streaming/" itemprop="url">
-		Spark学习(Spark Streaming)
+	<a href="/btjs.github.io/2019/10/26/hadoop学习初篇-一/" itemprop="url">
+		hadoop小记
 	</a>
 
 	</div>
@@ -279,9 +291,9 @@
 
 	发布于
 
-	<a href="/btjs.github.io/2019/09/04/Spark学习-Spark-Streaming/" itemprop="url">
-		<time datetime="2019-09-04T03:13:04.000Z" itemprop="datePublished">
-	  		2019-09-04
+	<a href="/btjs.github.io/2019/10/26/hadoop学习初篇-一/" itemprop="url">
+		<time datetime="2019-10-26T13:04:34.000Z" itemprop="datePublished">
+	  		2019-10-26
 	  </time>
 	</a>
 	&nbsp;
@@ -297,8 +309,8 @@
 
 	更新于
 
-	<a href="/btjs.github.io/2019/09/04/Spark学习-Spark-Streaming/" itemprop="url">
-		<time datetime="2019-09-04T03:13:04.000Z" itemprop="dateUpdated">
+	<a href="/btjs.github.io/2019/10/26/hadoop学习初篇-一/" itemprop="url">
+		<time datetime="2019-10-26T13:04:34.000Z" itemprop="dateUpdated">
 	  		2019-11-17
 	  </time>
 	</a> 
@@ -310,8 +322,8 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/btjs.github.io/tags/spark/" class=" ">
-			spark
+		<a href="/btjs.github.io/tags/hadoop/" class=" ">
+			hadoop
 		</a>
 	
 		
@@ -324,10 +336,14 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-			
+		<h2 id="hadoop学习小记-一"><a href="#hadoop学习小记-一" class="headerlink" title="hadoop学习小记(一)"></a>hadoop学习小记(一)</h2><p> <strong><em>MapReduce</em></strong>:<br> 一种分布式的计算方式指定一个Map（映#x5C04;）函数，用来把一组键值对映射成一组新的键值对，指定并发的Reduce（归约）函数，用来保证所有映射的键值对中的每一个共享相同的键组</p>
+<p> map: (K1, V1) → list(K2, V2) combine: (K2, list(V2)) → list(K2, V2) reduce: (K2, list(V2)) → list(K3, V3)</p>
+<p>Map输出格式和Reduce输入格式一定是相同的</p>
+<p><strong><em>MapReduce - 读取数据</em></strong><br>通过InputFormat决定读取的数据的类型，然后拆分成一个个InputSplit，每个InputSplit对应一个Map处理，RecordReader读取InputSplit的内容给Map</p>
+	
 	</div>
 	
-	<div id="current-post-cover" data-scr="https://raw.githubusercontent.com/yue-lhao/mypictures.github.com/master/images/14.jpg"></div>
+	<div id="current-post-cover" data-scr="https://raw.githubusercontent.com/yue-lhao/mypictures.github.com/master/images/18.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -342,12 +358,12 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/btjs.github.io/2019/09/10/Kafka学习/" title="Kafka学习" rel="prev">
+			<a href="/btjs.github.io/2019/10/26/java集合小记/" title="java集合小记" rel="prev">
 				&laquo;上一篇
 			</a>
 		
 		
-			<a href="/btjs.github.io/2019/09/03/Spark学习-Spark-SQL/" title="Spark学习(Spark SQL)" rel="next">
+			<a href="/btjs.github.io/2019/09/10/Kafka学习/" title="Kafka学习" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -391,30 +407,6 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/btjs.github.io/2019/10/26/hadoop学习初篇-一/" title="hadoop小记">
-								hadoop小记			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十月 26日, 2019				
-							</p>
-							<p class="relate-post-content">
-								hadoop学习小记(一) MapReduce: 一种分布式的计算方式指定一个Map（映#x5C04;）函数，用来把一组键值对映射成一组新的键值对，指定并发的Reduce（归约）函数，用来保证所有映射的键值对中的每一个共享相同的键组
-...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/btjs.github.io/2019/10/26/hadoop学习初篇-一/" title="hadoop小记">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="https://raw.githubusercontent.com/yue-lhao/mypictures.github.com/master/images/18.jpg" alt="hadoop小记"/>
-							</a>
-						</div>
-					</li>											
-			
-			
-					<li>
-						<div class="relate-post-text">
 							<a class="relate-post-title" href="/btjs.github.io/2019/09/10/Kafka学习/" title="Kafka学习">
 								Kafka学习			
 							</a>
@@ -431,6 +423,29 @@
 							<a href="/btjs.github.io/2019/09/10/Kafka学习/" title="Kafka学习">				
 								
 								<img class="lazy" src="/img/placeholder.jpg" data-src="https://raw.githubusercontent.com/yue-lhao/mypictures.github.com/master/images/3.jpg" alt="Kafka学习"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/btjs.github.io/2019/09/04/Spark学习-Spark-Streaming/" title="Spark学习(Spark Streaming)">
+								Spark学习(Spark Streaming)			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								九月 4日, 2019				
+							</p>
+							<p class="relate-post-content">
+								
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/btjs.github.io/2019/09/04/Spark学习-Spark-Streaming/" title="Spark学习(Spark Streaming)">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://raw.githubusercontent.com/yue-lhao/mypictures.github.com/master/images/14.jpg" alt="Spark学习(Spark Streaming)"/>
 							</a>
 						</div>
 					</li>											
