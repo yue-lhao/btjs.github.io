@@ -344,17 +344,10 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<h5 id="二分查找法（折半查找法）"><a href="#二分查找法（折半查找法）" class="headerlink" title="二分查找法（折半查找法）"></a>二分查找法（折半查找法）</h5><p>~<br>//二分查找法（折半查找法）<br>    //前提： 在一个有序集合中，不重复，依赖数组(链表大O会高)，数据量不要太小，也不要太大(数组讲究连续性)<br>    //注意：<br>    //  1.折半方法建议：low + (high - low) / 2<br>    // ‘× [(low+high)/2] 减少数值溢出可能’ ‘× low + (high-low) &gt;&gt; 1 :注意运算符优先级’<br>    //  2.考虑循环边界问题 low &lt;= high<br>    //  3.注意加1减1，否则死循环<br>    //时间复杂度 O(logn):<br>    //   区间变化 -&gt; n,n/2,n/4,n/8,….,n/2^k; k代表需要经历的次数，所以用O(k), n/2^k = 1 -&gt; k = log2n<br>    //讨论： O(1)一定比O(logn)高效吗？<br>    //  2的32次方用二分查找对多32次，O(1) 通常来说会去掉常数，系数和低阶，可能表示非常大的数O(1000),O(100000)<br>    //场景：假设有1000万个整数数据，每个数据占8个字节，如何设计数据结构和算法，快速判断某个整数是否出现在这1000万数据中？<br>    //要求不要超过100MB.<br>    //   1000万数据放在数组中大约占80MB,先排序，在二分查找. (散列表，二叉树需要额外存储空间)<br>    public int bsearch(int[] a, int n, int sValue) {<br>        if(a == null || a.length &lt;= 0) return -1;<br>        int low = 0;<br>        int high = n - 1;<br>        while (low &lt;= high) {  //带上=<br>            int mid = low + (high - low) / 2;<br>            if(a[mid] == sValue) {<br>                return mid;<br>            }else if(a[mid] &gt; sValue) {<br>                high = mid - 1; //需要减1 ：注意死循环<br>            }else {<br>                low = mid + 1; //同上<br>            }<br>        }<br>        return -1;<br>    }</p>
-<pre><code>//练习：求一个数的平方根？要求精确到小数点后6位
-public int squre(int[] a, int n) {
-    if(a == null || a.length &lt;= 0) throw new IllegalArgumentException(&quot;非法参数&quot;);
-
-    return 0;
-}</code></pre><p>~</p>
-	
+		<h5 id="二分查找法（折半查找法）"><a href="#二分查找法（折半查找法）" class="headerlink" title="二分查找法（折半查找法）"></a>二分查找法（折半查找法）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">//二分查找法（折半查找法）</span><br><span class="line">    //前提： 在一个有序集合中，不重复，依赖数组(链表大O会高)，数据量不要太小，也不要太大(数组讲究连续性)</span><br><span class="line">    //注意：</span><br><span class="line">    //  1.折半方法建议：low + (high - low) / 2</span><br><span class="line">    // ‘× [(low+high)/2] 减少数值溢出可能’ ‘× low + (high-low) &gt;&gt; 1 :注意运算符优先级’</span><br><span class="line">    //  2.考虑循环边界问题 low &lt;= high</span><br><span class="line">    //  3.注意加1减1，否则死循环</span><br><span class="line">    //时间复杂度 O(logn):</span><br><span class="line">    //   区间变化 -&gt; n,n/2,n/4,n/8,....,n/2^k; k代表需要经历的次数，所以用O(k), n/2^k = 1 -&gt; k = log2n</span><br><span class="line">    //讨论： O(1)一定比O(logn)高效吗？</span><br><span class="line">    //  2的32次方用二分查找对多32次，O(1) 通常来说会去掉常数，系数和低阶，可能表示非常大的数O(1000),O(100000)</span><br><span class="line">    //场景：假设有1000万个整数数据，每个数据占8个字节，如何设计数据结构和算法，快速判断某个整数是否出现在这1000万数据中？</span><br><span class="line">    //要求不要超过100MB.</span><br><span class="line">    //   1000万数据放在数组中大约占80MB,先排序，在二分查找. (散列表，二叉树需要额外存储空间)</span><br><span class="line">    public int bsearch(int[] a, int n, int sValue) &#123;</span><br><span class="line">        if(a == null || a.length &lt;= 0) return -1;</span><br><span class="line">        int low = 0;</span><br><span class="line">        int high = n - 1;</span><br><span class="line">        while (low &lt;= high) &#123;  //带上=</span><br><span class="line">            int mid = low + (high - low) / 2;</span><br><span class="line">            if(a[mid] == sValue) &#123;</span><br><span class="line">                return mid;</span><br><span class="line">            &#125;else if(a[mid] &gt; sValue) &#123;</span><br><span class="line">                high = mid - 1; //需要减1 ：注意死循环</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                low = mid + 1; //同上</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //练习：求一个数的平方根？要求精确到小数点后6位</span><br><span class="line">    public int squre(int[] a, int n) &#123;</span><br><span class="line">        if(a == null || a.length &lt;= 0) throw new IllegalArgumentException(&quot;非法参数&quot;);</span><br><span class="line"></span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>	
 	</div>
 	
-	<div id="current-post-cover" data-scr="https://gitee.com/http-yue_lhao-top/pictures/raw/master/images/10.jpg"></div>
+	<div id="current-post-cover" data-scr="https://gitee.com/http-yue_lhao-top/pictures/raw/master/images/15.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -551,29 +544,6 @@ $((expre...
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/btjs.github.io/2019/10/26/java集合小记/" title="java集合小记">
-								java集合小记			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十月 26日, 2019				
-							</p>
-							<p class="relate-post-content">
-								
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/btjs.github.io/2019/10/26/java集合小记/" title="java集合小记">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="https://gitee.com/http-yue_lhao-top/pictures/raw/master/images/17.jpg" alt="java集合小记"/>
-							</a>
-						</div>
-					</li>											
-			
-			
-					<li>
-						<div class="relate-post-text">
 							<a class="relate-post-title" href="/btjs.github.io/2019/10/26/hadoop学习初篇-一/" title="hadoop小记">
 								hadoop小记			
 							</a>
@@ -591,6 +561,29 @@ $((expre...
 							<a href="/btjs.github.io/2019/10/26/hadoop学习初篇-一/" title="hadoop小记">				
 								
 								<img class="lazy" src="/img/placeholder.jpg" data-src="https://gitee.com/http-yue_lhao-top/pictures/raw/master/images/18.jpg" alt="hadoop小记"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/btjs.github.io/2019/10/26/java集合小记/" title="java集合小记">
+								java集合小记			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十月 26日, 2019				
+							</p>
+							<p class="relate-post-content">
+								
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/btjs.github.io/2019/10/26/java集合小记/" title="java集合小记">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://gitee.com/http-yue_lhao-top/pictures/raw/master/images/17.jpg" alt="java集合小记"/>
 							</a>
 						</div>
 					</li>											
